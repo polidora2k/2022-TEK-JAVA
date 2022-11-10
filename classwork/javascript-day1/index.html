@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Day 1</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <script>
+        function abc(x,y){
+            console.log("this is the abc function " + (x+y));
+        }
+        
+        abc(3,5);
+        abc("3","5");
+        abc(3,"5");
+
+        function calc(a,b){
+            let c = a*b;
+            return c;
+        }
+
+        let m = calc(5,5);
+        console.log("calc = " + m);
+
+        console.log("test to \" the console's log");
+        console.log('test to \' the console"s log');
+        console.log('"3"==3 is ' + ("3"==3));
+        console.log('"3"===3 is ' + ("3"===3));
+        console.log('"3"==="3" is ' + ("3"==="3"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    let input = prompt("Enter your sequence:");
+    let noSpaces = input.split(" ").join("").split("");
+    noSpaces.push("!");
+    let total = 0;
+    let number = "";
+    let op = "";
+    let first = true;
+
+    for (let symbol of noSpaces) {
+        if ((symbol == "+" || symbol == "-" || symbol == "!") && first) {
+            total = Number(number);
+            op = symbol
+            number = 0;
+            first = false;
+        } else if ((symbol == "+" || symbol == "-" || symbol == "!") && !first) {
+            switch (op) {
+                case "+":
+                    total += Number(number);
+                    break;
+                case "-":
+                    total -= Number(number);
+                    break;
+            }
+
+            number = "";
+            op = symbol;
+        } else {
+            number += symbol;
+        }
+    }
+
+    console.log(total);
+</script>
+
+<body>
+
+</body>
+
+</html>

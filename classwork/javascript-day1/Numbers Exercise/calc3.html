@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    let input = prompt("Enter your sequences:");
+    let sequences = input.split(";");
+    for (let seq of sequences){
+        let noSpaces = seq.split(" ").join("").split("");
+        noSpaces.push("!");
+        let total = 0;
+        let number = "";
+        let op = "";
+        let first = true;
+        let num = 0;
+
+        for (let symbol of noSpaces) {
+            if ((symbol == "+" || symbol == "-" || symbol == "!") && first) {
+                if (number.endsWith("^")){
+                    num = Math.pow(Number(number.substring(0, number.length - 1)), 2);
+                } else {
+                    num = Number(number);
+                }
+
+                total = num;
+                op = symbol
+                number = 0;
+                first = false;
+            } else if ((symbol == "+" || symbol == "-" || symbol == "!") && !first) {
+                if (number.endsWith("^")){
+                    num = Math.pow(Number(number.substring(0, number.length - 1)), 2);
+                } else {
+                    num = Number(number);
+                }
+                
+                switch (op) {
+                    case "+":
+                        total += num;
+                        break;
+                    case "-":
+                        total -= num;
+                        break;
+                }
+
+                number = "";
+                op = symbol;
+            } else {
+                number += symbol;
+            }
+        }
+
+        console.log(total);
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>

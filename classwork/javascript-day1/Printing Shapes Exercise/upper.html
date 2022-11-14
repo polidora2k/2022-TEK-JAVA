@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    let input = prompt("Enter the side length of the triangle: ");
+    let row = "";
+    let image = "";
+    
+    for (let height = 0; height < input; height++){
+        row = "";
+
+        for (let width = 0; width < height; width++){
+            row += " ";
+        }
+
+        for (let stars = 0; stars < input - height; stars++){
+            row += "*";
+        }
+
+        image += row;
+        image += "\n";
+    }
+
+    console.log(image);
+</script>
+
+<body>
+    
+</body>
+</html>

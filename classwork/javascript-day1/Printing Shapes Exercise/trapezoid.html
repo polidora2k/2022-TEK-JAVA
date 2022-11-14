@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    let input = prompt("Enter the width and height of the trapezoid: ");
+    let dim = input.split(" ");
+    let row = "";
+    let image = "";
+
+    if ((dim[1] - 1) * 2 >= dim[0]) {
+        console.log("Impossible shape!");
+    } else {
+        for (let height = 0; height < dim[1]; height++) {
+            row = "";
+
+            for (let spaces = 0; spaces < height; spaces++) {
+                row += " ";
+            }
+
+            for (let stars = 0; stars < dim[0] - (height * 2); stars++) {
+                row += "*";
+            }
+
+            image += row;
+            image += "\n";
+        }
+
+        console.log(image);
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>

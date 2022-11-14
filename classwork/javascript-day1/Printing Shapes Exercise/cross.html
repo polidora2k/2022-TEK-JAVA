@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    let input = prompt("Enter the height of the cross: ");
+    let row;
+    let image = "";
+    
+    for (let height = 0; height < input; height++){
+        row = new Array(input);
+
+        if (height < ((input/2) - 1)){
+            row[height] = "*"
+        }
+
+        image += row;
+        image += "\n";
+    }
+
+    console.log(image);
+</script>
+
+<body>
+    
+</body>
+</html>

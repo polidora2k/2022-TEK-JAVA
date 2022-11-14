@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<script>
+    let student = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 30,
+        class: {
+            name: "Java developer",
+            time: "Everyday"
+        },
+        arr: ["abc", "cde", "fgh"]
+    };
+
+    console.log(student);
+    console.log(student.firstName + " = " + student["firstName"]);
+    console.log(student.lastName);
+    console.log(student.class.name);
+    console.log(student.arr[1]);
+
+    for (key in student) {
+        let value = student[key];
+        console.log("!!!!!!!" + key + " = " + value);
+    }
+
+    let a = new Array(10);
+    a[0] = 0;
+    a[1] = "string";
+    console.log(a);
+</script>
+
+<body>
+    <h1 id="header-title">Hello, world!</h1>
+
+    <script>
+        var header= document.getElementById('header-title');
+        console.log("======================");
+        console.log(header.innerHTML);
+        header.innerHTML = "Replacing the html"
+       </script>
+</body>
+
+</html>

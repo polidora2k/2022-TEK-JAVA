@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box</title>
+</head>
+
+<script>
+    let input = prompt("Enter the width and height of the box (eg. 10 2 where 10 is the width and 20 is the height)");
+    let dim = input.split(" ");
+    let row = "";
+    let image = "";
+    
+    for (let width = 0; width < dim[0]; width++){
+        row += "*";
+    }
+    
+    for (let height = 0; height < dim[1]; height++){
+        image += row;
+        image += "\n";
+    }
+
+    console.log(image);
+
+</script>
+
+<body>
+    
+</body>
+</html>

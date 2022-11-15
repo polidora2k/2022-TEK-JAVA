@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Examples</title>
+</head>
+
+<style>
+    .list-item {
+        color: green;
+    }
+
+    .list-item-bg {
+        background-color: aquamarine;
+    }
+
+    .page-title-css{
+        background-color: red;
+    }
+</style>
+
+<body>
+    <h1 id="page-title">DOM Examples</h1>
+
+    <ul name="unorderedList" customer-attr="customAttribute">
+        <li class="list-item" id="item1">Item 1</li>
+        <li class="list-item">Item 2</li>
+        <li class="list-item">Item 3</li>
+        <li class="list-item">Item 4</li>
+    </ul>
+
+
+    <!-- add a new node to the underedList -->
+    <!-- remove the node Item 2 -->
+    <!-- add a button to the form below -->
+    <!-- when the button is clicked console.log the value of the email input box -->
+    <!-- make another css class for page-title-css with the background = red -->
+    <!-- add another button that when clicked will add or remove the page-title-css -->
+    <!-- if page-title-css is present then remove it -->
+    <!-- is page-title-css is not present then add it -->
+
+
+    <form>
+        <input type="text" name="email" id="emailId">
+    </form>
+
+    <script>
+        let unorderedList = document.getElementById("item1").parentElement;
+        console.log(unorderedList.getAttribute("name"));
+        console.log(unorderedList.getAttribute("cusotm-attr"));
+        let newNode = document.createElement('li');
+        newNode.textContent = "Adding a New Node"
+        unorderedList.appendChild(newNode);
+
+        let lis = document.getElementsByClassName("list-item");
+        for (let item of lis){
+            if (item.textContent == "Item 2"){
+                item.remove();
+            }
+        }
+
+        let form = document.querySelector("form");
+        let newButton = document.createElement("button");
+        newButton.textContent = "Submit";
+
+        let showEmail = () => {
+            console.log(document.getElementById('emailId').value);
+        }
+
+        newButton.onclick = showEmail;
+        
+        document.body.appendChild(newButton);
+
+        let redButton = document.createElement("button");
+        redButton.textContent = "Change Background";
+
+        let changeClass = () => {
+            let header = document.getElementById("page-title");
+            if (header.classList.contains("page-title-css")){
+                header.classList.remove("page-title-css");
+            } else {
+                header.classList.add("page-title-css");
+            }
+        }
+
+        redButton.onclick = changeClass;
+        
+        document.body.appendChild(redButton);
+
+        console.log(document.title);
+        document.title = "New Title"
+        console.log(document.title);
+
+        let title = document.getElementById("page-title");
+        console.log(title);
+        console.log(title.innerHTML);
+        title.innerHTML = title.innerHTML + " added with JS"
+
+        let items = document.getElementsByClassName('list-item');
+        for (i in items) {
+            console.log(items[i].innerHTML);
+        }
+
+        document.getElementById("page-title").classList.add('list-item-bg');
+
+        
+    </script>
+
+
+
+</body>
+
+</html>

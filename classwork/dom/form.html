@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <h1>Form Example</h1>
+
+    <form name="form1" id="form1">
+        First Name <input type="text" name="first-name" id="firstName">
+        <br id="fnbr">
+        Last Name <input type="text" name="last-name" id="lastName">
+        <br id="lnbr">
+        Phone Number <input type="text" name="phone" id="phone">
+        <br><br>
+        <button type="submit" onclick="onSubmit(event)" id="submit">Submit</button>
+
+    </form>
+
+    <!-- when the form submits -->
+    <!-- make sure the phone number only has numbers and spaces -->
+    <!-- make sure the first and last name fields have a value in them -->
+    <!-- when there is an error, I want you to change the border color of the input tag to be red -->
+    <!-- also, put a red message under the input box giving an error message -->
+
+
+    <script>
+        function onSubmit(e) {
+            e.preventDefault();
+            const phonePattern = /^[0-9\s]+$/g;
+            let form = document.getElementById("form1");
+            let phone = document.getElementById("phone");
+            let firstName = document.getElementById("firstName");
+            let lastName = document.getElementById("lastName");
+
+
+            if (!phone.value.match(phonePattern)){
+                phone.style = "border-color: red";
+                let message = document.createElement("div");
+                message.textContent = "Invalid Phone Number";
+                message.style = "color: red";
+                phone.after(message);
+            }
+
+            if (firstName.value == ""){
+                firstName.style = "border-color: red";
+                let message = document.createElement("div");
+                message.textContent = "Invalid First Name";
+                message.style = "color: red";
+                firstName.after(message);
+            } else {
+                
+            }
+
+            if(lastName.value == ""){
+                lastName.style = "border-color: red";
+                let message = document.createElement("div");
+                message.textContent = "Invalid Last Name";
+                message.id = "iln";
+                message.style = "color: red";
+                lastName.after(message);
+            }
+
+            console.log("form submitted");
+            return false;
+        }
+    </script>
+</body>
+
+</html>

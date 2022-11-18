@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,22 +21,17 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "course")
-public class Course {
+@Table(name = "facultycourse")
+public class FacultyCourse {
 	@Id
-	@GeneratedValue( strategy=GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
 	private Integer id;
 	
-	@EqualsAndHashCode.Include
-	private String name;
-	
-	@EqualsAndHashCode.Include
 	@Column(insertable = false, updatable = false)
-	private Integer deptId;
+	private Integer facultyId;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "deptId")
-//	@ToString.Exclude
-//	private Department department;
+	@Column(insertable = false, updatable = false)
+	private Integer courseId;
+
 }

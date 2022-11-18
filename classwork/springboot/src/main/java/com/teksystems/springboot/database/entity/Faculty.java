@@ -23,22 +23,24 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "course")
-public class Course {
+@Table(name = "faculty")
+public class Faculty {
 	@Id
-	@GeneratedValue( strategy=GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
 	private Integer id;
+	@EqualsAndHashCode.Include
+	@Column(name="firstname")
+	private String firstName;
+	@EqualsAndHashCode.Include
+	@Column(name="lastname")
+	private String lastName;
 	
 	@EqualsAndHashCode.Include
-	private String name;
-	
-	@EqualsAndHashCode.Include
-	@Column(insertable = false, updatable = false)
+	@Column(name="deptid", insertable = false, updatable = false)
 	private Integer deptId;
 	
 //	@ManyToOne
-//	@JoinColumn(name = "deptId")
-//	@ToString.Exclude
+//	@JoinColumn(name = "deptid", nullable = false)
 //	private Department department;
 }

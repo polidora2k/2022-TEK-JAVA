@@ -29,12 +29,9 @@ public class Course {
 	@GeneratedValue( strategy=GenerationType.IDENTITY )
 	@EqualsAndHashCode.Include
 	private Integer id;
-	
-	@EqualsAndHashCode.Include
+
 	private String name;
 	
-	@EqualsAndHashCode.Include
-	@Column(insertable = false, updatable = false)
 	private Integer deptId;
 	
 //	@ManyToOne

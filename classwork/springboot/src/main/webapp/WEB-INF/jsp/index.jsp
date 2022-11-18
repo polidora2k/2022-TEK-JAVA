@@ -12,8 +12,8 @@
     <h1>Index Page ${name}</h1>
 
     <form method="get" action="/search">
-        Course Name: <input type="text" name="course" value="${course}">
-        Instructor Name: <input type="text" name="faculty" id="${faculty}">
+        Course Name: <input type="text" name="courseName" id="courseName" value="${courseName}">
+        Instructor Name: <input type="text" name="facultyName" id="facultyName" value="${facultyName}">
         <button type="submit">Search</button>
     </form>
 

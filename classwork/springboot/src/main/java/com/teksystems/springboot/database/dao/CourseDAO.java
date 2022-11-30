@@ -1,6 +1,7 @@
 package com.teksystems.springboot.database.dao;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,4 +21,7 @@ public interface CourseDAO extends JpaRepository<Course, Integer> {
 	public Course findByNameAndId(String name, String id);
 	
 	public Optional<Course> findById(Integer id);
+	
+	@Query( value = "select d.name as name, count(*) as cnt from course c join department d on c.deptId = d.id where c.deptId is not null and c.deptId != \"\" group by c.deptId order by c.deptId", nativeQuery = true)
+	public List<Map<String, Object>> departmentCourseCount();
 }

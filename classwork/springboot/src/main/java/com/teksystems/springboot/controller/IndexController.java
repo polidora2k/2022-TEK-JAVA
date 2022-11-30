@@ -2,6 +2,7 @@ package com.teksystems.springboot.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -210,6 +211,21 @@ public class IndexController {
 		}
 		
 		return null;
+	}
+	
+	@RequestMapping(value = {"/course/department"}, method = RequestMethod.GET)
+	public ModelAndView deptCount() {
+		ModelAndView response = new ModelAndView();
+		response.setViewName("department_count");
+		
+		List<Map<String, Object>> departmentCounts = courseDAO.departmentCourseCount();
+		for (Map<String,Object> count : departmentCounts) {
+			log.debug("The " + count.get("name") + " department has " + count.get("cnt") + " course(s)");
+		}
+		
+		response.addObject("departmentCounts", departmentCounts);
+		
+		return response;
 	}
 	
 	

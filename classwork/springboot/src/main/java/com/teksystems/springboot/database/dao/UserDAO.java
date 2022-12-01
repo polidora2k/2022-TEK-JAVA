@@ -7,5 +7,5 @@ import com.teksystems.springboot.database.entity.User;
 
 @Repository
 public interface UserDAO extends JpaRepository<User, Integer> {
-	
+	public User findByEmail(String email);
 }
